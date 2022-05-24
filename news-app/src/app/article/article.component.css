@@ -1,3 +1,30 @@
-div.image {
-    width: 10%;
+
+*{
+    font-family: Lato;
+}
+
+div.title{
+    font-size: x-large;
+    font-weight: 600;
+    background-color: green;
+    color: white;
+    width: 66%;
+    margin-left: 17%;
+    text-align: center;
+    padding: 6px;
+    
+}
+
+
+div.image{
+    width: 600px;
+    margin-left: calc(50% - 320px);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+div.content{
+    margin: 0 10% 40px 10%;
+    font-size: larger;
 }

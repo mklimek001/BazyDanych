@@ -9,7 +9,7 @@ import { Article, Articles, ArticlesData, Categories, Tags } from './models';
 })
 
 export class ArticleService {
-  private articlesUrl = 'http://localhost:5001/articles/';
+  private articlesUrl = 'http://127.0.0.1:5001/articles/';
 
   private  httpOptions = {
     headers: new HttpHeaders({
@@ -26,8 +26,8 @@ export class ArticleService {
     return this.http.get<ArticlesData>(this.articlesUrl);
   }
 
-  getRecommendedArticles(id : Number) : Observable<Article[]>{
-    return this.http.get<Article[]>(this.articlesUrl + 'recommended');
+  getRecommendedArticles(user_id : String) : Observable<Articles>{
+    return this.http.get<Articles>(this.articlesUrl + 'recommended/' + user_id);
   }
 
   getArticlesByCategory(category : String) : Observable<Articles>{

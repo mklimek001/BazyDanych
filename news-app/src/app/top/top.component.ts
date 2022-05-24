@@ -20,7 +20,4 @@ export class TopComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  button(){
-    console.log(this.name);
-  }
 }

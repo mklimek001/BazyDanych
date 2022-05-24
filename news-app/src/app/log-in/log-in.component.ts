@@ -27,6 +27,7 @@ export class LogInComponent implements OnInit {
   logIn(){
     this.userService.logIn(this.user).subscribe(res => {
       this.message = res.message;
+      console.log(this.message);
       if(res.user != undefined){
         this.loggedUserService.setCurrentUser(res.user);
         this.logged = true;

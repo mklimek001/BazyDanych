@@ -1,0 +1,37 @@
+*{
+    font-family: Lato;
+}
+
+div.articles{
+    width: 66%;
+    margin-left: 17%;
+}
+
+div.single_article{
+    border: 1px solid green;
+    margin-bottom: 10px;
+    padding: 20px;
+}
+
+div.article_title{
+    font-size: larger;
+    font-weight: 500;
+    margin: 10px 5%;
+}
+
+div.article_content{
+    margin: 5px 2%;
+}
+
+div.single_article>a{
+    text-decoration: none;
+    margin-left: 5%;
+    font-size: large;
+    font-weight: 400;
+}
+
+div.image{
+    text-align: center;
+    height: 400px;
+    overflow: hidden;
+}

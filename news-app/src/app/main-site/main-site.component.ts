@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Article} from '../services/models';
+import { Article, User} from '../services/models';
 import {ArticleService} from '../services//article.service'
 import { LoggedUserService } from '../services/logged-user.service';
 
@@ -17,24 +17,26 @@ export class MainSiteComponent implements OnInit {
   tags : String[] = [];
 
   userLoggedIn !: Boolean;
-  name : String = '';
+  current_user : User = new User;
   constructor(
     private articleProvider : ArticleService,
     private http : HttpClient,
     private loggedUserService : LoggedUserService) {
       this.loggedUserService.current_user.subscribe(user =>{
         this.userLoggedIn = user.login !== '';
-        this.name = user.name;
+        this.current_user = user;
+        if(this.userLoggedIn){
+          this.articleProvider.getRecommendedArticles(user.id?.toString()!).subscribe(data =>{
+            this.recommended = data.articles.slice(0, 3);
+          });
+        }
+
       })
    }
 
   ngOnInit(): void {
     this.articleProvider.getArticles().subscribe(data =>{
       this.recent = data.articles.slice(0, 3);
-    } );
-
-    this.articleProvider.getArticles().subscribe(data =>{
-      this.recommended = data.articles.slice(0, 3);
     } );
 
     this.articleProvider.getCategories().subscribe(data =>{
@@ -45,5 +47,4 @@ export class MainSiteComponent implements OnInit {
       this.tags = data.tags;
     } );
   }
-
 }

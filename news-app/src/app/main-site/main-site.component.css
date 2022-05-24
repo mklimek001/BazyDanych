@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: Lato;
 }
 
 div.body {
@@ -16,18 +17,39 @@ div.header {
     width: 100%;
     display: grid;
     grid-template-columns: 10% 70% 20%;
+    margin-bottom: 20px;
+    background-color: green;
+    color: white;
+    padding: 20px;
+    font-size: larger;
+}
+
+div.single_category {
+    width: 33%;
+    text-align: center;
+}
+
+div.single_category>a,
+div.login>a {
+    color: white;
+    text-decoration: none;
 }
 
 div.categories,
 div.tags {
-    width: 50%;
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    background-color: green;
+    padding: 10px;
 }
 
 div.categories>div>a,
-div.tags>div>a {
-    display: inline-block;
+div.tags>div>a,
+.whiteA {
+    display: block;
+    color: white;
+    text-decoration: none;
 }
 
 div.addArticle {
@@ -61,6 +83,45 @@ div.article {
 }
 
 div.image>img {
+    width: 100%;
+    height: auto;
+}
+
+p.section_header {
+    font-size: x-large;
+    font-weight: 600;
+}
+
+div.single_article {
+    padding: 15px;
+}
+
+div.article_title {
+    font-size: larger;
+    font-weight: 500;
+    margin: 5%;
+}
+
+div.article_content {
+    margin: 2%;
+}
+
+div.single_article>a {
+    text-decoration: none;
+    margin-left: 5%;
+    font-size: large;
+    font-weight: 400;
+}
+
+button.main_button {
+    width: 100px;
+    height: 24px;
+    margin-left: calc(50% - 50px);
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+div.logo>img {
     width: 100%;
     height: auto;
 }

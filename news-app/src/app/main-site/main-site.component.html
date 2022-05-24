@@ -2,47 +2,57 @@
     <div class="header">
         <div class="logo"><img src="../../assets/logo.png" alt=""></div>
         <div class="categories">
-            <div class="technologia">
-                <a routerLink="/section/categories/technologia">technologia</a>
+            <div class="technologia" class="single_category">
+                <a routerLink="/section/categories/technologia">Technologia</a>
             </div>
-            <div class="sport">
-                <a [routerLink]="['/section', 'categories', 'sport']">Sport</a>
+
+            <div class="sport" class="single_category">
+                <a routerLink="/section/categories/sport">Sport</a>
             </div>
-            <div class="travel">
-                <a [routerLink]="['/section', 'tags', 'podróże']">Podróże</a>
+            <div class="travel" class="single_category">
+                <a routerLink="/section/tags/podróże">Podróże</a>
+
             </div>
             <div class="addArticle" *ngIf="userLoggedIn">
                 <div>
-                    <a routerLink="/article-form">NowyArtykuł</a>
+                    <a class="whiteA" routerLink="/article-form">NowyArtykuł</a>
                 </div>
             </div>
         </div>
         <div class="login">
-            {{name}}
-            <a routerLink="/log-in">LOGIN</a>
-            <a routerLink="/sign-up">Sign Up</a>
+            <div>
+                {{current_user.name}}
+            </div>
+            <div>
+                <a class="whiteA" routerLink="/log-in">LOGIN</a>
+            </div>
+            <div>
+                <a class="whiteA" routerLink="/sign-up">Sign Up</a>
+            </div>
+
+
         </div>
     </div>
 
     <div class="recent">
-        <p>Z ostatniej chwili</p>
+        <p class="section_header">Z ostatniej chwili</p>
         <div class="articles">
-            <div *ngFor="let article of recent">
+            <div *ngFor="let article of recent" class="single_article">
                 <div class="image"><img src="{{article.image_source}}" alt="img"></div>
-                <div>{{article.title}}</div>
-                <div>{{article.content}}</div>
+                <div class="article_title">{{article.title}}</div>
+                <div class="article_content">{{article.content}}</div>
                 <a routerLink="/article/{{article.article_id}}">Czytaj...</a>
             </div>
         </div>
     </div>
 
     <div class="forYou" *ngIf="userLoggedIn">
-        <p>Dla Ciebie</p>
+        <p class="section_header">Dla Ciebie</p>
         <div class="articles">
-            <div *ngFor="let article of recommended">
+            <div *ngFor="let article of recommended" class="single_article">
                 <div class="image"><img src="{{article.image_source}}" alt="img"></div>
-                <div>{{article.title}}</div>
-                <div>{{article.content}}</div>
+                <div class="article_title">{{article.title}}</div>
+                <div class="article_content">{{article.content}}</div>
                 <a routerLink="/article/{{article.article_id}}">Czytaj...</a>
             </div>
         </div>
@@ -50,6 +60,12 @@
     <div class="categories">
         <div *ngFor="let category of categories">
             <a routerLink="/section/category/{{category}}">{{category}}</a>
+        </div>
+    </div>
+
+    <div class="tags">
+        <div *ngFor="let tag of tags">
+            <a routerLink="/section/tag/{{tag}}"></a>
         </div>
     </div>
 

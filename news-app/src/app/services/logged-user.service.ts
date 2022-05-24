@@ -11,7 +11,6 @@ export class LoggedUserService {
   constructor() { }
 
   setCurrentUser(user : User){
-    console.log(user);
     this.current_user.next(user);
   }
 }

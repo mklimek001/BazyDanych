@@ -1,10 +1,11 @@
 <div class="body">
     <app-top></app-top>
     <div class="title">
-        <p>{{article.title}}</p>
-        <p>{{article.article_id}}</p>
-        <div class="image"><img src="{{article.image_source}}" alt="img"></div>
+
+        <p class="title_text">{{article.title}}</p>
+
     </div>
+    <div class="image"><img src="{{article.image_source}}" alt="img"></div>
     <div class="content">{{article.content}}</div>
 
     <div *ngIf="userLoggedIn">
