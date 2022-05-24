@@ -2,27 +2,16 @@
 <form (ngSubmit)="addArticle()" #Form="ngForm">
     <div>
         <label for="">Tytuł</label>
-        <input type="text">
+        <input type="text" [(ngModel)]="article.title" )]>
     </div>
 
 
     <div>
         <label for="">Tagi</label>
-        <div>
+        <div *ngFor="let tag of tags">
             <input type="checkbox">
-            <label for="">Dom</label>
+            <label for="">{{tag}}</label>
         </div>
-
-        <div>
-            <input type="checkbox">
-            <label for="">Przyroda</label>
-        </div>
-
-        <div>
-            <input type="checkbox">
-            <label for="">Telefon</label>
-        </div>
-
     </div>
 
     <div>

@@ -22,12 +22,12 @@ div.categories,
 div.tags {
     width: 50%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 div.categories>div>a,
 div.tags>div>a {
-    display: block;
+    display: inline-block;
 }
 
 div.addArticle {

@@ -2,13 +2,13 @@
 
 <form (ngSubmit)="logIn()" #Form="ngForm">
     <label for="login"></label>
-    <input type="text" name="login" id="login" required [(ngModel)]="user.login">
+    <input type="text" name="login" id="login" required [(ngModel)]="user.login" [disabled]="logged">
 
     <label for="password"></label>
-    <input type="text" name="password" id="password" required [(ngModel)]="user.password">
+    <input type="text" name="password" id="password" required [(ngModel)]="user.password" [disabled]="logged">
 
     <button type="submit">Log in</button>
 
 </form>
 
-<p *ngIf="loginError">{{message}}</p>
+<p>{{message}}</p>

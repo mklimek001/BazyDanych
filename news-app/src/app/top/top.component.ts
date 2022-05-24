@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AppModule } from '../app.module';
+import { LoggedUserService } from '../services/logged-user.service';
 
 @Component({
   selector: 'app-top',
@@ -8,10 +8,19 @@ import { AppModule } from '../app.module';
 })
 export class TopComponent implements OnInit {
   @Input() showLogin : Boolean = true;
-  currentUser = AppModule.current_user;
-  constructor() { }
+  name : String = '';
+
+  constructor(
+    private loggedUserService : LoggedUserService
+  ) {
+    this.loggedUserService.current_user.subscribe(user => {
+      this.name = user.name;
+    })
+   }
 
   ngOnInit(): void {
   }
-
+  button(){
+    console.log(this.name);
+  }
 }

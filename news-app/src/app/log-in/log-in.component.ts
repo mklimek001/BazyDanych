@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { of } from 'rxjs';
+import { LoggedUserService } from '../services/logged-user.service';
 
-import { AppModule } from '../app.module'
 import { User } from '../services/models';
 import { UserService } from '../services/user.service';
 
@@ -13,10 +14,12 @@ import { UserService } from '../services/user.service';
 export class LogInComponent implements OnInit {
   user = new User();
   message : String = '';
+  logged : boolean = false;
 
-  loginError : Boolean = false;
-
-  constructor(private userService : UserService, private router : Router) { }
+  constructor(
+    private userService : UserService,
+    private router : Router,
+    private loggedUserService : LoggedUserService) { }
 
   ngOnInit(): void {
   }
@@ -24,13 +27,10 @@ export class LogInComponent implements OnInit {
   logIn(){
     this.userService.logIn(this.user).subscribe(res => {
       this.message = res.message;
-      console.log(this.message, res.user);
       if(res.user != undefined){
-        AppModule.current_user = res.user;
+        this.loggedUserService.setCurrentUser(res.user);
+        this.logged = true;
         this.router.navigate(['/main-site']);
-      }
-      else{
-        this.loginError = true;
       }
     })
   }

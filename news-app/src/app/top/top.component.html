@@ -3,7 +3,11 @@
         <div class="back"><a routerLink="/main-site">Powrót do strony głównej</a></div>
     </div>
     <div class="right">
-        <p>--{{currentUser.name}}--</p>
-        <div class="signIn" *ngIf="showLogin"><a routerLink="/log-in">Sign IN</a></div>
+        <p>--{{name}}--</p>
+        <div class="signIn" *ngIf="showLogin">
+            <a routerLink="/log-in">Log In</a>
+            <a routerLink="/sign-up">Sign up</a>
+        </div>
     </div>
+    <button (click)="button()">Button</button>
 </div>

@@ -1,5 +1,6 @@
 <div *ngIf=""></div>
 <form (ngSubmit)="publishComment()" #Form="ngForm">
+    {{article_id}}
     <label for="content"></label>
     <input type="text" name="content" id="content" reqired [(ngModel)]="comment.content">
 

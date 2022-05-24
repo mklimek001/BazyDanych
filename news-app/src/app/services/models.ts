@@ -118,6 +118,10 @@ export class Comment{
   }
 }
 
+export interface Comments{
+  comments: Comment[]
+}
+
 export enum ArticlesBy{
   tag = "tag",
   category = "category"

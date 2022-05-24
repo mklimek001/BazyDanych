@@ -28,6 +28,5 @@ export class ArticlesSectionComponent implements OnInit {
      }
     }))
     obs.subscribe(articles => this.articles = articles.articles);
-    console.log(this.articles);
   }
 }

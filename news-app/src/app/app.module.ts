@@ -10,11 +10,11 @@ import { AddArticleFormComponent } from './add-article-form/add-article-form.com
 import { LogInComponent } from './log-in/log-in.component';
 import { ArticleComponent } from './article/article.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { User } from './services/models';
 import { TopComponent } from './top/top.component';
 import { AddCommentFormComponent } from './add-comment-form/add-comment-form.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { ArticlesSectionComponent } from './articles-section/articles-section.component';
+import { AddRatingFormComponent } from './add-rating-form/add-rating-form.component';
 
 
 @NgModule({
@@ -28,7 +28,8 @@ import { ArticlesSectionComponent } from './articles-section/articles-section.co
     TopComponent,
     AddCommentFormComponent,
     SignUpComponent,
-    ArticlesSectionComponent
+    ArticlesSectionComponent,
+    AddRatingFormComponent
   ],
   imports: [
     BrowserModule,
@@ -40,5 +41,4 @@ import { ArticlesSectionComponent } from './articles-section/articles-section.co
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  static current_user = new User();
  }

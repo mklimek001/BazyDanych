@@ -9,7 +9,7 @@ import { Article, Articles, ArticlesData, Categories, Tags } from './models';
 })
 
 export class ArticleService {
-  private articlesUrl = 'http://localhost:5001/articles';
+  private articlesUrl = 'http://localhost:5001/articles/';
 
   private  httpOptions = {
     headers: new HttpHeaders({
@@ -27,37 +27,40 @@ export class ArticleService {
   }
 
   getRecommendedArticles(id : Number) : Observable<Article[]>{
-    return this.http.get<Article[]>(this.articlesUrl + '/recommended');
+    return this.http.get<Article[]>(this.articlesUrl + 'recommended');
   }
 
   getArticlesByCategory(category : String) : Observable<Articles>{
     console.log(category);
-    return this.http.get<Articles>(this.articlesUrl+'/category/'+category);
+    return this.http.get<Articles>(this.articlesUrl+'category/'+category);
   }
 
   getArticlesByTag(tag : String) : Observable<Articles>{
-    return this.http.get<Articles>(this.articlesUrl + '/tag/' + tag);
+    return this.http.get<Articles>(this.articlesUrl + 'tag/' + tag);
   }
 
-  getArticleById(id : Number) : Observable<Article>{
-    return this.http.get<Article>(this.articlesUrl + "/" + id.toString());
+  getArticleById(id : String) : Observable<Article>{
+    return this.http.get<Article>(this.articlesUrl + id);
   }
 
   getCategories() : Observable<Categories>{
-    return this.http.get<Categories>(this.articlesUrl + "/categories");
+    return this.http.get<Categories>(this.articlesUrl + "categories");
   }
 
   getTags() : Observable<Tags>{
-    return this.http.get<Tags>(this.articlesUrl + "/tags");
+    return this.http.get<Tags>(this.articlesUrl + "tags");
   }
-
 
   publishAritcle(article : Article){
     this.http.post<Article>(this.articlesUrl, article, this.httpOptions);
   }
 
   deleteArticle(id : Number){
-    this.http.delete(this.articlesUrl + "/" + id.toString());
+    this.http.delete(this.articlesUrl + id.toString());
+  }
+
+  rate(article_id : Number, grade : Number){
+    return this.http.put<Number>(this.articlesUrl + article_id.toString() + "/" + grade.toString(), grade, this.httpOptions);
   }
 }
 

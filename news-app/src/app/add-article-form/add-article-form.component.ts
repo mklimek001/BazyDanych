@@ -9,10 +9,13 @@ import { Article } from '../services/models';
 })
 export class AddArticleFormComponent implements OnInit {
   article = new Article();
-
+  tags : String[] = [];
   constructor(private articleService : ArticleService) { }
 
   ngOnInit(): void {
+    this.articleService.getTags().subscribe(data => {
+      this.tags = data.tags;
+    });
   }
 
   addArticle(){

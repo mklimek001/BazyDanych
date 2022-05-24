@@ -1,7 +1,0 @@
-python-dotenv~=0.20.0
-Flask~=2.1.2
-pydantic~=1.9.0
-fastapi~=0.76.0
-pymongo[tls,srv]~=4.1.1
-Flask-PyMongo~=2.3.0
-flask-cors~=3.0.10

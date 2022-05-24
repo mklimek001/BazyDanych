@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppModule } from '../app.module';
+import { LoggedUserService } from '../services/logged-user.service';
 import { User } from '../services/models';
 import { UserService } from '../services/user.service';
 
@@ -11,10 +12,12 @@ import { UserService } from '../services/user.service';
 })
 export class SignUpComponent implements OnInit {
   user = new User();
-  currentuser = AppModule.current_user;
   message : String = '';
 
-  constructor(private userService : UserService, private router : Router) { }
+  constructor(
+    private userService : UserService,
+     private router : Router,
+     private loggedUserService : LoggedUserService) { }
 
   ngOnInit(): void {
   }
@@ -26,7 +29,7 @@ export class SignUpComponent implements OnInit {
       console.log(this.user);
       console.log(res.user);
       if(res.user != undefined){
-        this.currentuser = res.user;
+        this.loggedUserService.setCurrentUser(res.user);
         this.router.navigate(['/main-site']);
       }
     })

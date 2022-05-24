@@ -1,21 +1,24 @@
 <div class="body">
     <div class="header">
-        <div class="logo">LOGO</div>
+        <div class="logo"><img src="../../assets/logo.png" alt=""></div>
         <div class="categories">
             <div class="technologia">
                 <a routerLink="/section/categories/technologia">technologia</a>
             </div>
             <div class="sport">
-                <a routerLink="/section/categories/sport">Sport</a>
+                <a [routerLink]="['/section', 'categories', 'sport']">Sport</a>
             </div>
             <div class="travel">
-                <a routerLink="/section/tags/podróże">Podróże</a>
+                <a [routerLink]="['/section', 'tags', 'podróże']">Podróże</a>
             </div>
             <div class="addArticle" *ngIf="userLoggedIn">
-                <a routerlink="/article-form"></a>
+                <div>
+                    <a routerLink="/article-form">NowyArtykuł</a>
+                </div>
             </div>
         </div>
         <div class="login">
+            {{name}}
             <a routerLink="/log-in">LOGIN</a>
             <a routerLink="/sign-up">Sign Up</a>
         </div>
@@ -49,11 +52,6 @@
             <a routerLink="/section/category/{{category}}">{{category}}</a>
         </div>
     </div>
-    <div class="tags">
-        <div *ngFor="let tag of tags">
-            <a routerLink="/section/tag/{{tag}}"></a>
-        </div>
-    </div>
-    <button (click)="button()">Button</button>
+
     <div class="footer"></div>
 </div>

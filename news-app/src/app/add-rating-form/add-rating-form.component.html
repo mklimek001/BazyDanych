@@ -1,0 +1,8 @@
+<form (ngSubmit)="rate()" #Form="ngForm">
+    <label for="rating">Oceń</label>
+    <select [(ngModel)]="grade">
+      <option *ngFor="let grade of grades" [value]="grade">{{grade}}</option>
+    </select>
+
+    <button type="submit">Wyślij</button>
+</form>
